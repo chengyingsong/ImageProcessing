@@ -17,8 +17,8 @@ img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 # plt.show()
 
 
-r_x = 0.5  # x轴缩放率
-r_y = 0.5  # y轴缩放率
+r_x = 1.25  # x轴缩放率
+r_y = 1.25  # y轴缩放率
 NEAREST_NEIGHBOR = 1
 
 
@@ -30,7 +30,7 @@ def resize(img, r_x, r_y, interpolation=None):
         for dst_x in range(dst_w):
             for dst_y in range(dst_h):
                 src_x = round(dst_x * (src_w / dst_w))
-                src_y = round(dst_y * (src_w / dst_w))
+                src_y = round(dst_y * (src_h / dst_h))
                 dst[dst_x][dst_y] = img[src_x][src_y]
     dst = dst.astype(int)
     return dst
